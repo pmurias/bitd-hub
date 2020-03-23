@@ -1,0 +1,13 @@
+.container {
+  flex-direction: column;
+  height:100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dice {
+  margin-bottom: 20px;
+  font-size: 40px;
+}

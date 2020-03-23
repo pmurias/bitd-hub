@@ -17,7 +17,7 @@ export class DiceRollerComponent implements OnInit {
   }
 
   roll() : void {
-    this.dice += '⚂';
+    this.dice += '⚂ ';
     console.log("rolling");
   }
 
