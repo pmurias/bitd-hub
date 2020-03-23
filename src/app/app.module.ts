@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DiceRollerComponent } from './dice-roller/dice-roller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DieFacePipe } from './die-face.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DiceRollerComponent
+    DiceRollerComponent,
+    DieFacePipe
   ],
   imports: [
     BrowserModule,

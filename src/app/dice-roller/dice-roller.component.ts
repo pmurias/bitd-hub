@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dice-roller.component.css']
 })
 export class DiceRollerComponent implements OnInit {
-  dice : string[];
+  dice : number[];
 
-  // '⚀⚁⚂⚃⚄⚅'
   constructor() {
     this.dice = [];
   }
@@ -19,7 +18,7 @@ export class DiceRollerComponent implements OnInit {
   roll() : void {
     const audio = new Audio('assets/roll.mp3');
     audio.play();
-    this.dice.push('⚂');
+    this.dice.push(3);
     console.log("rolling");
   }
 
