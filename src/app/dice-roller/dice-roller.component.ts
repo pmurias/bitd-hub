@@ -6,23 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dice-roller.component.css']
 })
 export class DiceRollerComponent implements OnInit {
-  dice : string;
+  dice : string[];
 
   // '⚀⚁⚂⚃⚄⚅'
   constructor() {
-    this.dice = '';
+    this.dice = [];
   }
 
   ngOnInit(): void {
   }
 
   roll() : void {
-    this.dice += '⚂ ';
+    this.dice.push('⚂');
     console.log("rolling");
   }
 
   reset() : void {
-    this.dice = '';
+    this.dice = [];
     console.log("reset");
   }
 }

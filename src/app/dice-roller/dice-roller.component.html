@@ -1,6 +1,6 @@
 <div class="container" >
     <div class="dice">
-        {{dice}}
+        <span *ngFor="let die of dice">{{die}}</span>
     </div>
     <div>
         <button mat-raised-button (click)="roll()"> 🎲</button>
