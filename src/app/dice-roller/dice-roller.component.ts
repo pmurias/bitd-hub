@@ -17,6 +17,8 @@ export class DiceRollerComponent implements OnInit {
   }
 
   roll() : void {
+    const audio = new Audio('assets/roll.mp3');
+    audio.play();
     this.dice.push('⚂');
     console.log("rolling");
   }
