@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dice-roller.component.css']
 })
 export class DiceRollerComponent implements OnInit {
+  dice : string;
 
   // '⚀⚁⚂⚃⚄⚅'
   constructor() {
