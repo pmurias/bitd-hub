@@ -3,7 +3,7 @@
         <span *ngFor="let die of dice">{{die | dieFace}}</span>
     </div>
     <div>
-        <button mat-raised-button (click)="roll()"> 🎲</button>
-        <button mat-raised-button (click)="reset()">↺</button>
+        <button color="primary" mat-flat-button (click)="roll()"> 🎲</button>
+        <button mat-stroked-button (click)="reset()">↺</button>
     </div>
 </div>
