@@ -9,6 +9,12 @@ import { DiceRollerComponent } from './dice-roller/dice-roller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DieFacePipe } from './die-face.pipe';
 
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +24,9 @@ import { DieFacePipe } from './die-face.pipe';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
     MatButtonModule,
     AppRoutingModule,
     BrowserAnimationsModule

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "blades-6e896": {
+      "hosting": {
+        "blades": [
+          "blades-6e896"
+        ]
+      }
+    }
+  }
+}

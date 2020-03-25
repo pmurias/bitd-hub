@@ -1,6 +1,7 @@
 <div class="container" >
     <div class="dice">
-        <span *ngFor="let die of dice">{{die | dieFace}}</span>
+        <span *ngFor="let die of dice | async">{{die.value | dieFace}}</span>
+<!--        <span *ngFor="let die of dice | async">{{die | json}}</span>-->
     </div>
     <div>
         <button color="primary" mat-flat-button (click)="roll()"> 🎲</button>
