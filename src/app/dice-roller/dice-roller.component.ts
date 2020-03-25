@@ -11,6 +11,7 @@ import {firestore} from 'firebase/app';
 })
 export class DiceRollerComponent {
   dice: Observable<any[]>;
+  currentDice: any[];
   firestore: AngularFirestore;
 
   constructor(firestore: AngularFirestore) {
