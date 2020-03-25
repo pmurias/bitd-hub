@@ -21,7 +21,7 @@ export class DiceRollerComponent {
   }
 
   roll() : void {
-    const audio = new Audio('assets/roll.mp3');
+    const audio = new Audio('assets/roll' + Math.ceil(Math.random() * 4) + '.mp3');
     audio.play();
     const rollValue = Math.ceil(Math.random() * 6);
     this.firestore.collection('dice').add({
