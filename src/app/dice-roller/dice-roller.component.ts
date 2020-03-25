@@ -11,12 +11,8 @@ import {firestore} from 'firebase/app';
 })
 export class DiceRollerComponent {
   dice: Observable<any[]>;
-  currentDice: any[];
-  firestore: AngularFirestore;
-
-  constructor(firestore: AngularFirestore) {
-    this.firestore = firestore;
-
+  private currentDice: any[];
+  constructor(private firestore: AngularFirestore) {
     this.dice = this.firestore.collection('dice',
       ref => ref.orderBy('rolledAt')
     ).valueChanges({idField: 'id'});
