@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
+import {firestore} from 'firebase/app';
 
 @Component({
   selector: 'app-dice-roller',
@@ -14,7 +15,11 @@ export class DiceRollerComponent {
 
   constructor(firestore: AngularFirestore) {
     this.firestore = firestore;
-    this.dice = this.firestore.collection('dice').valueChanges({idField: 'id'});
+
+    this.dice = this.firestore.collection('dice',
+      ref => ref.orderBy('rolledAt')
+    ).valueChanges({idField: 'id'});
+
     this.dice.subscribe(currentDice => this.currentDice = currentDice);
   }
 
@@ -22,7 +27,10 @@ export class DiceRollerComponent {
     const audio = new Audio('assets/roll.mp3');
     audio.play();
     const rollValue = Math.ceil(Math.random() * 6);
-    this.firestore.collection('dice').add({value: rollValue});
+    this.firestore.collection('dice').add({
+      value: rollValue,
+      rolledAt: firestore.FieldValue.serverTimestamp()
+    });
   }
 
   reset() : void {
