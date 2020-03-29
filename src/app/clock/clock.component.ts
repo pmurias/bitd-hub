@@ -16,7 +16,7 @@ export class ClockComponent {
   }
 
   redraw() : void {
-    const radius = 50;
+    const radius = 49;
 
     const points = [];
 
