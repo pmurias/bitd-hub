@@ -1,18 +1,21 @@
-import { Component, Input, OnInit  } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit  } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.svg',
   styleUrls: ['./clock.component.css']
 })
+
 export class ClockComponent {
   @Input() segments : number;
 
-  progress : number;
+  @Output() progressed = new EventEmitter<number>();
+
+
+  @Input() progress : number;
   parts : any;
 
   constructor() {
-    this.progress = 0;
   }
 
   redraw() : void {
@@ -21,8 +24,6 @@ export class ClockComponent {
     const points = [];
 
     let degree = -0.5 * Math.PI;
-
-    console.log('segments', this.segments);
 
     for (let i = 0; i < this.segments; i++) {
       const x = 50 + Math.cos(degree) * radius;
@@ -48,8 +49,7 @@ export class ClockComponent {
   }
 
   click() {
-    this.progress = (this.progress + 1) % (this.segments + 1);
-    this.redraw();
-    console.log('click');
+    const newProgress = (this.progress + 1) % (this.segments + 1);
+    this.progressed.emit(newProgress);
   }
 }

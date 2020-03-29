@@ -1,4 +1,4 @@
 <!--  style="" -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="margin: 20px" (click)="click()">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="margin: 20px" (click)="click();">
   <path [attr.d]="part.path" *ngFor="let part of parts" [attr.fill]="part.fill" stroke="black"/>
 </svg>

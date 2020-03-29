@@ -1,5 +1,27 @@
-<div>
-<app-clock [segments]="4"></app-clock>
-<app-clock [segments]="6"></app-clock>
-<app-clock [segments]="8"></app-clock>
+<div id="container">
+    <div id="clocks">
+        <div *ngFor="let clock of clocks | async" class="clockWidget">
+            <app-clock 
+              [segments]="clock.segments"
+              [progress]="clock.progress"
+              (progressed)="clockProgress($event, clock.id)">
+            </app-clock>
+            <div class="clockInfo">{{clock.name}}
+                <button mat-flat-button (click)="remove(clock.id)"><mat-icon>delete</mat-icon></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="panel">
+        <mat-form-field appearance="fill">
+            <mat-label>Clock name</mat-label>
+            <input matInput [(ngModel)]="clockName">
+        </mat-form-field>
+
+        <br>
+        <button mat-stroked-button (click)="add(clockName, 4)">Add 4</button>
+        <button (click)="add(clockName, 6)" mat-stroked-button>Add 6</button>
+        <button (click)="add(clockName, 8)" mat-stroked-button>Add 8</button>
+    </div>
+
 </div>

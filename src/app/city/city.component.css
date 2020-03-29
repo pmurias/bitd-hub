@@ -1,0 +1,27 @@
+#clocks {
+  display: flex;
+  flex-wrap: wrap;
+}
+.clockWidget {
+/*  border: solid 1px red;*/
+}
+
+.clockInfo {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  align-items: baseline;
+}
+
+#container {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+#panel {
+  margin-top: 50px;
+}
+
+#panel button {
+  margin-right: 10px;
+}
