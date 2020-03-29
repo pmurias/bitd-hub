@@ -6,47 +6,50 @@ import { Component, Input, OnInit  } from '@angular/core';
   styleUrls: ['./clock.component.css']
 })
 export class ClockComponent {
-  x : number;
-  y : number;
-
   @Input() segments : number;
 
-  degree : number;
- 
-  radius : number;
-
-  points : any;
-
+  progress : number;
   parts : any;
 
-  ngOnInit(): void {
-    this.radius = 50;
+  constructor() {
+    this.progress = 0;
+  }
 
-    this.points = [];
+  redraw() : void {
+    const radius = 50;
 
-    let degree = 0;
+    const points = [];
+
+    let degree = -0.5 * Math.PI;
 
     console.log('segments', this.segments);
 
     for (let i = 0; i < this.segments; i++) {
-      const x = 50 + Math.cos(degree) * this.radius;
-      const y = 50 + Math.sin(degree) * this.radius;
-      this.points.push({x, y});
+      const x = 50 + Math.cos(degree) * radius;
+      const y = 50 + Math.sin(degree) * radius;
+
+      points.push({x, y});
+
       degree += 2 * Math.PI * (1 / this.segments);
     }
 
     this.parts = [];
 
     for (let i = 0; i < this.segments ; i++) {
-      const a = this.points[i];
-      const b = this.points[(i + 1) % this.points.length];
-      this.parts.push({path: `M 50 50 L ${a.x} ${a.y} A ${this.radius} ${this.radius} 0 0 1 ${b.x} ${b.y} Z`, fill: (i % 2 == 0 ? 'black' : 'none')});
+      const a = points[i];
+      const b = points[(i + 1) % points.length];
+      const fill = i < this.progress;
+      this.parts.push({path: `M 50 50 L ${a.x} ${a.y} A ${radius} ${radius} 0 0 1 ${b.x} ${b.y} Z`, fill: (fill ? 'black' : 'none')});
     }
+  }
 
-    console.log(this.parts);
+  ngOnInit(): void {
+    this.redraw();
   }
 
   click() {
+    this.progress = (this.progress + 1) % (this.segments + 1);
+    this.redraw();
     console.log('click');
   }
 }

@@ -1,4 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-<!--  <line x1="50" y1="50" [attr.x2]="point.x" [attr.y2]="point.y" *ngFor="let point of points"/>-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" (click)="click()">
   <path [attr.d]="part.path" *ngFor="let part of parts" [attr.fill]="part.fill" stroke="black"/>
 </svg>
