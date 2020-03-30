@@ -13,9 +13,8 @@ describe('DieFacePipe', () => {
 
   it('convert dice roll value', () => {
     const pipe = new DieFacePipe();
-    expect([0, 1, 2, 3, 4, 5, 6, 7].map(value => pipe.transform(value))).toEqual(
-      [0, '⚀', '⚁', '⚂', '⚃', '⚄', '⚅', 7]
-    );
+    expect(
+      [0, 1, 2, 3, 4, 5, 6, 7].map(value => pipe.transform(value))
+    ).toEqual([0, '⚀', '⚁', '⚂', '⚃', '⚄', '⚅', 7]);
   });
-
 });

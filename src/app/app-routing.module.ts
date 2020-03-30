@@ -8,20 +8,20 @@ import { CityComponent } from './city/city.component';
 const routes: Routes = [
   {
     path: 'dice',
-    component: DiceRollerComponent
+    component: DiceRollerComponent,
   },
   {
     path: 'character',
-    component: CharacterSheetComponent
+    component: CharacterSheetComponent,
   },
   {
     path: 'city',
-    component: CityComponent
-  }
+    component: CityComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

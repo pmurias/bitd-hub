@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FormsModule } from '@angular/forms';
 
@@ -25,7 +25,6 @@ import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 import { ClockComponent } from './clock/clock.component';
 import { CityComponent } from './city/city.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +33,7 @@ import { CityComponent } from './city/city.component';
     CharacterSheetComponent,
     CheckboxesComponent,
     ClockComponent,
-    CityComponent
+    CityComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +47,9 @@ import { CityComponent } from './city/city.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
