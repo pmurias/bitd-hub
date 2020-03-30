@@ -11,14 +11,14 @@ export class ClockComponent implements OnInit {
   @Output() progressed = new EventEmitter<number>();
 
   @Input() progress: number;
-  parts: any;
+  parts: {path : string, fill : string}[];
 
   constructor() {}
 
   redraw(): void {
     const radius = 49;
 
-    const points = [];
+    const points : {x : number, y : number}[] = [];
 
     let degree = -0.5 * Math.PI;
 

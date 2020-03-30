@@ -21,11 +21,11 @@ export class DiceRollerComponent {
   }
 
   roll(): void {
-    const audio = new Audio(
+    const audio : HTMLAudioElement = new Audio(
       'assets/roll' + Math.ceil(Math.random() * 4) + '.mp3'
     );
     audio.play();
-    const rollValue = Math.ceil(Math.random() * 6);
+    const rollValue : number = Math.ceil(Math.random() * 6);
     this.store.collection('dice').add({
       value: rollValue,
       rolledAt: firestore.FieldValue.serverTimestamp(),
