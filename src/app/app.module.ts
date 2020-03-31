@@ -24,6 +24,7 @@ import { CharacterSheetComponent } from './character-sheet/character-sheet.compo
 import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 import { ClockComponent } from './clock/clock.component';
 import { CityComponent } from './city/city.component';
+import { HubComponent } from './hub/hub.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CityComponent } from './city/city.component';
     CheckboxesComponent,
     ClockComponent,
     CityComponent,
+    HubComponent,
   ],
   imports: [
     BrowserModule,
