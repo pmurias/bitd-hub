@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 import { firestore } from 'firebase/app';
+import { Howl } from 'howler';
 
 @Component({
   selector: 'app-dice-roller',
@@ -12,19 +13,29 @@ import { firestore } from 'firebase/app';
 export class DiceRollerComponent {
   dice: Observable<any[]>;
   private currentDice: any[];
+
+  private sounds: Howl[];
+
   constructor(private store: AngularFirestore) {
+  }
+
+  ngOnInit(): void {
     this.dice = this.store
       .collection('dice', ref => ref.orderBy('rolledAt'))
       .valueChanges({ idField: 'id' });
+
+    this.sounds = [];
+    for (let i = 1; i <= 4; i++) {
+      this.sounds.push(new Howl({src: [
+        'assets/roll' + i + '.mp3'
+      ]}));
+    }
 
     this.dice.subscribe(currentDice => (this.currentDice = currentDice));
   }
 
   roll(): void {
-    const audio : HTMLAudioElement = new Audio(
-      'assets/roll' + Math.ceil(Math.random() * 4) + '.mp3'
-    );
-    audio.play();
+    this.sounds[Math.floor(Math.random() * this.sounds.length)].play();
     const rollValue : number = Math.ceil(Math.random() * 6);
     this.store.collection('dice').add({
       value: rollValue,
