@@ -26,6 +26,9 @@ import { ClockComponent } from './clock/clock.component';
 import { CityComponent } from './city/city.component';
 import { HubComponent } from './hub/hub.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { CharacterSheetsComponent } from './character-sheets/character-sheets.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,7 @@ import { HubComponent } from './hub/hub.component';
     ClockComponent,
     CityComponent,
     HubComponent,
+    CharacterSheetsComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ import { HubComponent } from './hub/hub.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatToolbarModule,
     FormsModule,
   ],
   providers: [],

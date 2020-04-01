@@ -1,4 +1,1 @@
-<mat-checkbox></mat-checkbox>
-<mat-checkbox></mat-checkbox>
-<mat-checkbox></mat-checkbox>
-<mat-checkbox></mat-checkbox>
+<mat-checkbox *ngFor="let box of boxes; index as i" [ngModel]="box.value" (change)="check(i, $event.checked)"></mat-checkbox>

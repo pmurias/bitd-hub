@@ -1,37 +1,35 @@
 <div id="container">
     <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput>
+        <input [ngModel]="(character | async)?.name" (ngModelChange)="update({name: $event})" matInput>
     </mat-form-field>
 
     <br>
 
     <mat-form-field appearance="fill">
         <mat-label>Alias</mat-label>
-        <input matInput>
+        <input [ngModel]="(character | async)?.alias" (ngModelChange)="update({alias: $event})" matInput>
     </mat-form-field>
 
-    <br>
-
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" id="look">
         <mat-label>Look</mat-label>
-        <input matInput>
+        <input [ngModel]="(character | async)?.look" (ngModelChange)="update({look: $event})" matInput>
     </mat-form-field>
-
-    <br>
 
     <mat-form-field appearance="fill">
         <mat-label>Heritage</mat-label>
-        <input matInput>
+        <input [ngModel]="(character | async)?.heritage" (ngModelChange)="update({heritage: $event})" matInput>
     </mat-form-field>
 
-    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Background</mat-label>
+        <input [ngModel]="(character | async)?.background" (ngModelChange)="update({background: $event})" matInput>
+    </mat-form-field>
 
-    Stress
-    <app-checkboxes></app-checkboxes>
+    <mat-form-field appearance="fill" id="vice">
+        <mat-label>Vice</mat-label>
+        <input [ngModel]="(character | async)?.vice" (ngModelChange)="update({vice: $event})" matInput>
+    </mat-form-field>
 
-    <br>
-
-    Trauma
     <app-checkboxes></app-checkboxes>
 </div>
