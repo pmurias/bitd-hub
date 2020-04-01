@@ -1,19 +1,30 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.svg',
   styleUrls: ['./clock.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ClockComponent),
+      multi: true
+    }
+  ]
 })
 export class ClockComponent implements OnInit {
   @Input() segments: number;
 
-  @Output() progressed = new EventEmitter<number>();
-
-  @Input() progress: number;
   parts: {path : string, fill : string}[];
 
-  constructor() {}
+  onChange = (_: number) => {};
+
+  private progress : number;
+
+  constructor() {
+    console.log('creating clock');
+  }
 
   redraw(): void {
     const radius = 49;
@@ -49,7 +60,20 @@ export class ClockComponent implements OnInit {
   }
 
   click() {
-    const newProgress = (this.progress + 1) % (this.segments + 1);
-    this.progressed.emit(newProgress);
+    this.progress = (this.progress + 1) % (this.segments + 1);
+    this.redraw();
+
+    this.onChange(this.progress);
+  }
+
+  registerOnChange(onChange) {
+    this.onChange = onChange;
+  }
+
+  registerOnTouched() {}
+
+  writeValue(value) {
+    this.progress = value;
+    this.redraw();
   }
 }

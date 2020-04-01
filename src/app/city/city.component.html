@@ -3,8 +3,8 @@
         <div *ngFor="let clock of clocks | async" class="clockWidget">
             <app-clock 
               [segments]="clock.segments"
-              [progress]="clock.progress"
-              (progressed)="clockProgress($event, clock.id)">
+              [ngModel]="clock.progress"
+              (ngModelChange)="clockProgress($event, clock.id)">
             </app-clock>
             <div class="clockInfo">{{clock.name}}
                 <button mat-flat-button (click)="remove(clock.id)"><mat-icon>delete</mat-icon></button>
