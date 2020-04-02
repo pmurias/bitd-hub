@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -9,10 +9,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class CharacterSheetComponent implements OnInit {
   character: Observable<any>;
+
+  @Input()
   id: string;
 
   constructor(private store: AngularFirestore) {
-    this.id = 'npc';
   }
 
   ngOnInit(): void {

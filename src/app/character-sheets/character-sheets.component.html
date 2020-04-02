@@ -1,1 +1,8 @@
-<p>character-sheets works!</p>
+<div class="characters">
+    <div *ngFor="let character of characters | async; trackBy: trackById">
+        <app-character-sheet [id]="character.id"></app-character-sheet>
+        <button mat-flat-button (click)="remove(character.id)"><mat-icon>delete</mat-icon></button>
+    </div>
+</div>
+
+<button style="margin-top: 30px" mat-stroked-button (click)="add()">Add character</button>

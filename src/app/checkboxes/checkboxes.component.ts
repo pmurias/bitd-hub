@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -17,17 +17,20 @@ export class CheckboxesComponent implements OnInit, ControlValueAccessor {
   ticked : number;
   boxes : any;
 
+  @Input() max: number;
+
   onChange = (_: number) => {};
 
   constructor() {
     this.ticked = 0;
     this.boxes = [];
-    for (let i = 0; i < 8; i++) {
+  }
+
+  ngOnInit(): void {
+    for (let i = 0; i < this.max; i++) {
       this.boxes.push({value: true});
     }
   }
-
-  ngOnInit(): void {}
 
   check(index, value) {
     this.ticked = value ? index + 1 : index;

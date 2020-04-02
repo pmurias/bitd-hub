@@ -31,5 +31,13 @@
         <input [ngModel]="(character | async)?.vice" (ngModelChange)="update({vice: $event})" matInput>
     </mat-form-field>
 
-    <app-checkboxes [ngModel]="(character | async)?.stress" (ngModelChange)="update({stress: $event})"></app-checkboxes>
+    <span class="boxes">
+        <mat-label>Stress</mat-label>
+        <app-checkboxes [max]="8" [ngModel]="(character | async)?.stress" (ngModelChange)="update({stress: $event})"></app-checkboxes>
+    </span>
+
+    <span class="boxes">
+        Trauma
+        <app-checkboxes [max]="4" [ngModel]="(character | async)?.trauma" (ngModelChange)="update({trauma: $event})"></app-checkboxes>
+    </span>
 </div>

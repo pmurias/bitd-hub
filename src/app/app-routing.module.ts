@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DiceRollerComponent } from './dice-roller/dice-roller.component';
-import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { CharacterSheetsComponent } from './character-sheets/character-sheets.component';
 import { CityComponent } from './city/city.component';
 import { HubComponent } from './hub/hub.component';
 
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'character',
-    component: CharacterSheetComponent,
+    component: CharacterSheetsComponent,
   },
   {
     path: 'city',

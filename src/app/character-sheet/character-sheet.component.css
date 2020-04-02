@@ -17,3 +17,8 @@
   grid-column-end: 3;
   width: 100%;
 }
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+}
