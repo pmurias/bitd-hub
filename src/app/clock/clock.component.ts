@@ -23,7 +23,6 @@ export class ClockComponent implements OnInit {
   private progress : number;
 
   constructor() {
-    console.log('creating clock');
   }
 
   redraw(): void {

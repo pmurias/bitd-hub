@@ -1,6 +1,6 @@
 <div id="container">
     <div id="clocks">
-        <div *ngFor="let clock of clocks | async" class="clockWidget">
+        <div *ngFor="let clock of clocks | async; trackBy: trackById" class="clockWidget">
             <app-clock 
               [segments]="clock.segments"
               [ngModel]="clock.progress"

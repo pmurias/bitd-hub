@@ -38,11 +38,14 @@ export class CityComponent implements OnInit {
   }
 
   clockProgress(progress, id) {
-    console.log('progressed clock to', progress, id);
     this.store
       .collection('clocks')
       .doc(id)
       .update({ progress });
+  }
+
+  trackById(clock) {
+    return clock.id;
   }
 
   ngOnInit(): void {}
