@@ -16,11 +16,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class ClockComponent implements OnInit {
   @Input() segments: number;
 
+  @Input() size: string;
+
   parts: {path : string, fill : string}[];
 
   onChange = (_: number) => {};
 
-  private progress : number;
+  private progress : number = 0;
 
   constructor() {
   }

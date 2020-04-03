@@ -2,6 +2,7 @@
     <div id="clocks">
         <div *ngFor="let clock of clocks | async; trackBy: trackById" class="clockWidget">
             <app-clock 
+              size="150px"
               [segments]="clock.segments"
               [ngModel]="clock.progress"
               (ngModelChange)="clockProgress($event, clock.id)">
