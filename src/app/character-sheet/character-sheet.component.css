@@ -1,6 +1,7 @@
 #container {
   display: grid;
-  grid-column-gap: 5px;
+  column-gap: 5px;
+  row-gap: 5px;
   grid-template-columns: 200px 200px;
   margin-left: 20px;
   margin-top: 20px;
@@ -21,4 +22,24 @@
 .boxes {
   display: flex;
   flex-direction: column;
+}
+
+#armor {
+  display: flex;
+  flex-direction: column;
+}
+
+#items {
+  display: flex;
+  flex-direction: column;
+}
+
+#healing {
+  display: flex;
+  user-select: none;
+  flex-direction: column;
+}
+
+mat-checkbox {
+  margin-right: 5px;
 }

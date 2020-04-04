@@ -29,6 +29,8 @@ import { HubComponent } from './hub/hub.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CharacterSheetsComponent } from './character-sheets/character-sheets.component';
 
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { CharacterSheetsComponent } from './character-sheets/character-sheets.co
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatSelectModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,

@@ -40,4 +40,63 @@
         Trauma
         <app-checkboxes [max]="4" [ngModel]="(character | async)?.trauma" (ngModelChange)="update({trauma: $event})"></app-checkboxes>
     </span>
+
+    <!--
+    <span id="harm">
+        Harm
+        <mat-form-field appearance="fill">
+            <mat-label>Harm 3</mat-label>
+            <input [ngModel]="(character | async)?.harm3" (ngModelChange)="update({harm3: $event})" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Harm 2</mat-label>
+            <input [ngModel]="(character | async)?.harm1a" (ngModelChange)="update({harm3: $event})" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Harm 2</mat-label>
+            <input [ngModel]="(character | async)?.harm2a" (ngModelChange)="update({harm3: $event})" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Harm 1</mat-label>
+            <input [ngModel]="(character | async)?.harm1a" (ngModelChange)="update({harm3: $event})" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Harm 1</mat-label>
+            <input [ngModel]="(character | async)?.harm1b" (ngModelChange)="update({harm3: $event})" matInput>
+        </mat-form-field>
+    </span>
+    -->
+
+    <span id="armor">
+        Armor uses
+        <mat-checkbox>Armor</mat-checkbox>
+        <mat-checkbox>Heavy</mat-checkbox>
+        <mat-checkbox>Special</mat-checkbox>
+    </span>
+
+   <span id="healing">
+    Healing
+    <app-clock [segments]="4" size="50px"></app-clock>
+   </span>
+
+   <span>
+       <mat-form-field>
+         <mat-label>Load</mat-label>
+         <mat-select [ngModel]="(character | async)?.load" (ngModelChange)="update({load: $event})">
+           <mat-option [value]="3">3 light</mat-option>
+           <mat-option [value]="5">5 normal</mat-option>
+           <mat-option [value]="8">8 heavy</mat-option>
+         </mat-select>
+       </mat-form-field>
+
+        <span id="items">
+          <span *ngFor="let item of items">
+            <mat-checkbox *ngFor="let extraBox of extraBoxes(item)" [(ngModel)]="item.value"></mat-checkbox>
+            <mat-checkbox [(ngModel)]="item.value">{{item.name}}</mat-checkbox>
+          </span>
+        </span>
+    </span>
+
+
+
 </div>

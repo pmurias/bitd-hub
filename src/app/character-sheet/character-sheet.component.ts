@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ItemsService } from '../items.service';
 
 @Component({
   selector: 'app-character-sheet',
@@ -13,7 +14,9 @@ export class CharacterSheetComponent implements OnInit {
   @Input()
   id: string;
 
-  constructor(private store: AngularFirestore) {
+  items: any[];
+
+  constructor(private store: AngularFirestore, private itemsService : ItemsService) {
   }
 
   ngOnInit(): void {
@@ -21,9 +24,16 @@ export class CharacterSheetComponent implements OnInit {
     this.character = this.store
       .collection('characters').doc(this.id)
       .valueChanges();
+
+    this.items = this.itemsService.getItems();
   }
 
   update(data) {
     this.store.collection('characters').doc(this.id).update(data);
+  }
+
+  extraBoxes(item) {
+    console.log(item, new Array(item.size - 1).fill(true));
+    return new Array(item.size - 1).fill(true);
   }
 }
